@@ -28,3 +28,4 @@ spec:
             masterURL: https://127.0.0.1:50950 # FIXME: shown by kubectl cluster-info
             # FIXME: Replace here with your kubeconfig absolute file path.
             kubeConfigPath: /Users/niladri/.kube/config
+            useBinaryFromPath: true
