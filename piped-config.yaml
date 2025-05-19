@@ -1,0 +1,27 @@
+apiVersion: pipecd.dev/v1beta1
+kind: Piped
+spec:
+  projectID: quickstart
+  # FIXME: Replace here with your piped ID.
+  pipedID: 99ac1514-b1ab-4e5e-bed0-843e9887dafb
+  # Base64 encoded string of the piped private key.
+  # FIXME: Replace here with your piped base64 key.
+  pipedKeyData: NW56MXk2d210YWdtbWx0MWZiNDhpeXpjdG1uem5yeGNxY2EzbXI3Mmh0N3V4bHdkN2o=
+  # Write in a format like "host:443" because the communication is done via gRPC.
+  # FIXME: Replace here with your piped address if you connect Piped to a control plane that does not run locally.
+  apiAddress: localhost:8080
+  repositories:
+  - repoId: CD
+    remote: https://github.com/Initify-v1/CD.git
+    branch: main
+  syncInterval: 1m
+  plugin:
+    - name: k8s_plugin
+      port: 8081
+      deployTargets:
+        - name: dev
+          labels: 
+            env: dev
+          config: # depends on plugins
+            masterURL: http://cluster-dev
+            kubeConfigPath: /Users/niladri/.kube/config
