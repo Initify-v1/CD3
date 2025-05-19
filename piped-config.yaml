@@ -17,10 +17,13 @@ spec:
   syncInterval: 1m
   plugins:
       - name: kubernetes
+        type: kubernetes
         port: 7003 # FIXME: any unused port
-        url: file:///pkg/app/pipedv1/plugin/kubernetes # It's OK using any value for now because it's a dummy. We will implement it later.
+        url: file:///Users/niladri/.piped/plugins/kubernetes # It's OK using any value for now because it's a dummy. We will implement it later.
         deployTargets: # This field is alternative for platform providers
         - name: kubernetes-dev
+          labels:
+            kind: KUBERNETES
           config:
             masterURL: https://127.0.0.1:50950 # FIXME: shown by kubectl cluster-info
             # FIXME: Replace here with your kubeconfig absolute file path.
