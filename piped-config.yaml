@@ -12,7 +12,7 @@ spec:
   apiAddress: localhost:8080
   repositories:
   - repoId: CD
-    remote: https://github.com/Initify-v1/CD.git
+    remote: https://github.com/Initify-v1/CD3.git
     branch: main
   syncInterval: 1m
   plugin:
