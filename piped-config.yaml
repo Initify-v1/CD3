@@ -15,13 +15,13 @@ spec:
     remote: https://github.com/Initify-v1/CD3.git
     branch: main
   syncInterval: 1m
-  plugin:
-    - name: k8s_plugin
-      port: 8081
-      deployTargets:
-        - name: dev
-          labels: 
-            env: dev
-          config: # depends on plugins
-            masterURL: http://cluster-dev
+  plugins:
+      - name: kubernetes
+        port: 7003 # FIXME: any unused port
+        url: file:///pkg/app/pipedv1/plugin/kubernetes # It's OK using any value for now because it's a dummy. We will implement it later.
+        deployTargets: # This field is alternative for platform providers
+        - name: kubernetes-dev
+          config:
+            masterURL: https://127.0.0.1:50950 # FIXME: shown by kubectl cluster-info
+            # FIXME: Replace here with your kubeconfig absolute file path.
             kubeConfigPath: /Users/niladri/.kube/config
