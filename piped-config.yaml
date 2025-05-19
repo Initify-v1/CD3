@@ -11,7 +11,7 @@ spec:
   # FIXME: Replace here with your piped address if you connect Piped to a control plane that does not run locally.
   apiAddress: localhost:8080
   repositories:
-  - repoId: CD
+  - repoId: CD3
     remote: https://github.com/Initify-v1/CD3.git
     branch: main
   syncInterval: 1m
